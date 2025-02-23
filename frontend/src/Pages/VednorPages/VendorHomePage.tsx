@@ -17,7 +17,6 @@ import { useQuery } from '@tanstack/react-query';
 import { getVendorId } from '../../QueriesAndMutations/AuthQueries';
 
 const VendorHomePage = () => {
-  const location = useLocation();
   const vId = useRecoilValue(vendorIdAtom);
   console.log(vId);
   const navigate = useNavigate();
@@ -33,7 +32,7 @@ const VendorHomePage = () => {
 
   useEffect(() => {
     handleVendorId();
-  }, [location]);
+  }, []);
   return (
     <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       <Topbar />
