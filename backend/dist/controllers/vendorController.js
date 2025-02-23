@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateVendorDetails = exports.getVendorDetails = exports.getAllVendors = void 0;
+exports.getVendorId = exports.updateVendorDetails = exports.getVendorDetails = exports.getAllVendors = void 0;
 const client_1 = require("@prisma/client");
 const types_1 = require("../types/types");
 const prisma = new client_1.PrismaClient();
@@ -149,3 +149,16 @@ const updateVendorDetails = (req, res) => __awaiter(void 0, void 0, void 0, func
     }
 });
 exports.updateVendorDetails = updateVendorDetails;
+const getVendorId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    try {
+        const vendor = yield prisma.vendor.findFirst({ where: { userId: (_a = req.user) === null || _a === void 0 ? void 0 : _a.id } });
+        const vendorId = vendor === null || vendor === void 0 ? void 0 : vendor.vendorId;
+        res.status(200).json({ vendorId: vendorId });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'Some error occurred' });
+    }
+});
+exports.getVendorId = getVendorId;

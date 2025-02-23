@@ -152,3 +152,14 @@ export const updateVendorDetails = async (req: userRequest, res: Response) => {
     res.status(500).json(error);
   }
 };
+
+export const getVendorId = async (req: userRequest, res: Response) => {
+  try {
+    const vendor = await prisma.vendor.findFirst({ where: { userId: req.user?.id } });
+    const vendorId = vendor?.vendorId;
+    res.status(200).json({ vendorId: vendorId });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Some error occurred' });
+  }
+};

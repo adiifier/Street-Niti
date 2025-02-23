@@ -104,3 +104,10 @@ export const createStall = async (Contents: createStallType) => {
   });
   return response.data;
 };
+
+export const getVendorId = async () => {
+  const response = await axios.get('https://street-niti.onrender.com/api/v1/vendor/vendorId', {
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+  });
+  return response.data;
+};

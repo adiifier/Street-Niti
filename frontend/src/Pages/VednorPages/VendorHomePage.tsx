@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import applyLogo from '../../Images/apply.png';
@@ -9,15 +9,31 @@ import img1 from '../../Images/c1.jpg';
 import img4 from '../../Images/c4.jpg';
 import img5 from '../../Images/c5.jpg';
 import Topbar from '../../Components/Topbar';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { vendorIdAtom } from '../../Atoms/atoms';
+import { useQuery } from '@tanstack/react-query';
+import { getVendorId } from '../../QueriesAndMutations/AuthQueries';
 
 const VendorHomePage = () => {
+  const location = useLocation();
   const vId = useRecoilValue(vendorIdAtom);
   console.log(vId);
   const navigate = useNavigate();
+
+  const { data } = useQuery({ queryKey: ['vendorIdey'], queryFn: getVendorId });
+  const [vendorId, setVendorId] = useRecoilState(vendorIdAtom);
+
+  const handleVendorId = () => {
+    if (data?.vendorId) {
+      setVendorId(data.vendorId);
+    }
+  };
+
+  useEffect(() => {
+    handleVendorId();
+  }, [location]);
   return (
     <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       <Topbar />

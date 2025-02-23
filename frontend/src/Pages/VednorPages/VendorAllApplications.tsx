@@ -9,7 +9,6 @@ import { useRecoilState } from 'recoil';
 import { allApplicationsAtom, currentApplicationIdAtom, vendorIdAtom } from '../../Atoms/atoms';
 
 const VendorAllApplications = () => {
-  const location = useLocation();
   const navigate = useNavigate();
 
   const [currentApplicationIdThis, setCurrentApplicationIdThis] = useRecoilState(currentApplicationIdAtom);
@@ -32,15 +31,6 @@ const VendorAllApplications = () => {
     queryFn: GetVendorApplications,
   });
   const [vendorId, setVendorId] = useRecoilState(vendorIdAtom);
-  const handleVendorId = () => {
-    if (info) {
-      setVendorId(info[0].vendorId);
-    }
-  };
-
-  useEffect(() => {
-    handleVendorId();
-  }, [location]);
 
   console.log(info);
   const truncateText = (text: string, length: number) => {

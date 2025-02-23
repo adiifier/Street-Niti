@@ -10,5 +10,6 @@ const router = express_1.default.Router();
 router.get('/', middleware_1.authMiddleWare, vendorController_1.getAllVendors); //ADMIN
 router.get('/details/:vendorId', middleware_1.authMiddleWare, vendorController_1.getVendorDetails);
 router.put('/', middleware_1.authMiddleWare, vendorController_1.updateVendorDetails);
+router.get('/vendorId', middleware_1.authMiddleWare, vendorController_1.getVendorId);
 exports.default = router;
 //cm52tz7wt0000w7akalv9bhxg
