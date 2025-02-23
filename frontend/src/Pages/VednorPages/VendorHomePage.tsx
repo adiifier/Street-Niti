@@ -19,20 +19,17 @@ import { getVendorId } from '../../QueriesAndMutations/AuthQueries';
 const VendorHomePage = () => {
   const vId = useRecoilValue(vendorIdAtom);
   console.log(vId);
+  const location = useLocation();
   const navigate = useNavigate();
 
-  const { data } = useQuery({ queryKey: ['vendorIdey'], queryFn: getVendorId });
+  const { data, isSuccess } = useQuery({ queryKey: ['vendorIdey'], queryFn: getVendorId });
   const [vendorId, setVendorId] = useRecoilState(vendorIdAtom);
 
-  const handleVendorId = () => {
-    if (data?.vendorId) {
+  useEffect(() => {
+    if (isSuccess && data?.vendorId) {
       setVendorId(data.vendorId);
     }
-  };
-
-  useEffect(() => {
-    handleVendorId();
-  }, []);
+  }, [isSuccess, data, setVendorId]);
   return (
     <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
       <Topbar />
