@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const vendorRoutes_1 = __importDefault(require("./routes/vendorRoutes"));
+const adminRoutes_1 = __importDefault(require("./routes/adminRoutes"));
+const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
+const applicationRoutes_1 = __importDefault(require("./routes/applicationRoutes"));
+const stallsRoutes_1 = __importDefault(require("./routes/stallsRoutes"));
+const express_fileupload_1 = __importDefault(require("express-fileupload"));
+const express = require('express');
+const cors = require('cors');
+const app = express();
+app.use(cors());
+app.use((0, express_fileupload_1.default)());
+app.use(express.json());
+app.use('/api/v1/vendor', vendorRoutes_1.default);
+app.use('/api/v1/admin', adminRoutes_1.default);
+app.use('/api/v1/auth', authRoutes_1.default);
+app.use('/api/v1/application', applicationRoutes_1.default);
+app.use('/api/v1/stalls', stallsRoutes_1.default);
+exports.default = app;

@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+@theme {
+  /* --font-display: "Satoshi", "sans-serif";
+    --breakpoint-3xl: 1920px; */
+  --color-d1: #222831;
+  --color-d2: #31363f;
+  --color-d3: #76abae;
+  --color-d4: #eeeeee;
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+  /* ... */
+}
