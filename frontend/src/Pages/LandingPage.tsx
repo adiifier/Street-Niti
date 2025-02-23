@@ -41,6 +41,15 @@ const LandingPage = () => {
           >
             Login
           </motion.button>
+          <motion.button
+            onClick={() => {
+              navigate('/sign-in/admin');
+            }}
+            className="mt-6 ml-3 px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg shadow-lg hover:bg-yellow-600 transition"
+            whileHover={{ scale: 1.1 }}
+          >
+            Admin
+          </motion.button>
         </motion.div>
       </section>
     </div>

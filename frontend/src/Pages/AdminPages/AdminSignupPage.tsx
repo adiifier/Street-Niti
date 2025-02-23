@@ -110,6 +110,17 @@ const AdminSignupPage = () => {
           >
             Sign Up
           </motion.button>
+          <p className="text-gray-500 text-center text-sm flex items-center justify-center ">
+            Already have an account ?{' '}
+            <div
+              className="font-light underline cursor-pointer"
+              onClick={() => {
+                navigate('/sign-in/admin');
+              }}
+            >
+              Sign In
+            </div>
+          </p>
           {loginFailed && (
             <p className=" text-center text-red-400 rounded-2xl text-md font-semibold">{'Sign Up Failed'}</p>
           )}

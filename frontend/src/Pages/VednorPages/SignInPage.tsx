@@ -104,6 +104,17 @@ const SignInPage = () => {
           >
             Login
           </motion.button>
+          <p className="text-gray-500 text-center text-sm flex items-center justify-center ">
+            Don't have an account ?{' '}
+            <div
+              className="font-light underline cursor-pointer"
+              onClick={() => {
+                navigate('/vendor/sign-up');
+              }}
+            >
+              Sign Up
+            </div>
+          </p>
           {loginFailed && (
             <p className=" text-center text-red-400 rounded-2xl text-md font-semibold">{'Login Failed'}</p>
           )}

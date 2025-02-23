@@ -15,6 +15,7 @@ import AboutUs from './Pages/AboutUs';
 import AdminLogInPage from './Pages/AdminPages/AdminLoginPage';
 import AdminHomePage from './Pages/AdminPages/AdminHomePage';
 import AdminStalls from './Pages/AdminPages/AdminStalls';
+import AdminAboutUs from './Pages/AdminPages/AdminAboutUs';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/sign-in/admin" element={<AdminLogInPage />}></Route> //Signin Page for Admin
           <Route path="/admin/sign-up" element={<AdminSignupPage />}></Route> //Admin Signup Page
           <Route path="/admin/home" element={<AdminHomePage />}></Route> //Admin Signup Page
+          <Route path="/admin/aboutUs" element={<AdminAboutUs />}></Route> //Admin AboutUs Page
         </Routes>
       </BrowserRouter>
     </>

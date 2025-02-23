@@ -75,7 +75,7 @@ const AdminLogInPage = () => {
             transition={{ duration: 0.8, ease: easeIn }}
           >
             <motion.img className=" mb-6 " src={logo} initial={{ height: 60, width: 60, borderRadius: 5 }}></motion.img>
-            <motion.div className="font-bold text-2xl text-d2 "> Login </motion.div>
+            <motion.div className="font-bold text-2xl text-d2 ">Admin Login </motion.div>
             <motion.div className="rounded-lg ">
               <Inputbox
                 label="Email"
@@ -104,6 +104,17 @@ const AdminLogInPage = () => {
           >
             Login
           </motion.button>
+          <p className="text-gray-500 text-center text-sm flex items-center justify-center ">
+            Dont have an account ?{' '}
+            <div
+              className="font-light underline cursor-pointer"
+              onClick={() => {
+                navigate('/admin/sign-up');
+              }}
+            >
+              Sign Up
+            </div>
+          </p>
           {loginFailed && (
             <p className=" text-center text-red-400 rounded-2xl text-md font-semibold">{'Login Failed'}</p>
           )}
