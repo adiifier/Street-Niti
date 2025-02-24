@@ -8,7 +8,6 @@
 ✅ **Vendor Registration & Management** – Vendors can apply for vending spots and track approvals.  
 ✅ **Admin Panel** – Role-based access for admins to review and approve/reject applications.  
 ✅ **Authentication System** – Secure login with **JWT authentication**.  
-✅ **Local Data Storage** – Vendor details are managed securely on the client side.  
 ✅ **User-Friendly UI** – Built with **React.js** for a smooth and responsive experience.  
 
 ---
